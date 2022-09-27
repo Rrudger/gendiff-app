@@ -1,6 +1,7 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
+  "type": "module",
   "description": "[![Actions Status](https://github.com/Rrudger/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/Rrudger/frontend-project-lvl2/actions)",
   "main": "gendiff.js",
   "scripts": {
@@ -16,6 +17,9 @@
     "url": "https://github.com/Rrudger/frontend-project-lvl2/issues"
   },
   "homepage": "https://github.com/Rrudger/frontend-project-lvl2#readme",
+  "bin": {
+    "gendiff": "gendiff.js"
+  },
   "dependencies": {
     "commander": "^9.4.0"
   }
