@@ -4,8 +4,7 @@ jobs:
   Linter:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout
-      - run: make install
+      - uses: actions/checkout@v1
       - name: run eslint
-        run: make lint
+        run: npx eslint .
       - run: echo "🍏 This job's status is ${{ job.status }}."
