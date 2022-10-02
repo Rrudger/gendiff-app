@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: install debs
-        run: instsll debs
+        run: install debs
       - name: run eslint
         run: npx eslint .
       - run: echo "🍏 This job's status is ${{ job.status }}."
