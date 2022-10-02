@@ -4,5 +4,7 @@ jobs:
   Linter:
     runs-on: ubuntu-latest
     steps:
-      - run: make lint
+      - run: make install
+      - name: run eslint
+        run: make lint
       - run: echo "🍏 This job's status is ${{ job.status }}."
