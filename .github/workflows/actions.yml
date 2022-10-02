@@ -5,6 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - name: install debs
+        run: instsll debs
       - name: run eslint
         run: npx eslint .
       - run: echo "🍏 This job's status is ${{ job.status }}."
