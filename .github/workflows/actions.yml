@@ -1,12 +1,15 @@
-name: frontend-project-lvl2
+name: Lint
 on: [push]
 jobs:
-  Linter:
+  eslint_check:
+    name: Prepare action
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: install debs
-        run: install debs
-      - name: run eslint
-        run: npx eslint .
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      # Checkout action must run prior to eslint check
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Lint
+      uses: Rrudger/eslint-check-action@v1.1.0
+      with:
+        eslintFiles: "lib, scripts"
+        eslintConfig: ".eslintrc.yml"
