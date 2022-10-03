@@ -9,7 +9,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
     - name: Lint
-      uses: actions/eslint-check-action@v1.1.0
+      uses: ${{ github.repository }}/eslint-check-action@v1.1.0
       with:
         eslintFiles: "lib, scripts"
         eslintConfig: ".eslintrc.yml"
