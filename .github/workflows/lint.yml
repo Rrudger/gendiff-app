@@ -12,4 +12,4 @@ jobs:
       - run: npm init @eslint/config
       - run: npx eslint .
         with:
-          eslint-rc: .eslintrc.yml
+          eslintConfig: .eslintrc.yml
