@@ -18,4 +18,4 @@ jobs:
       # Ставим зависимости
       - run: npm install
       # Запускаем линтер
-      - run: npx eslint .
+      - run: make lint
