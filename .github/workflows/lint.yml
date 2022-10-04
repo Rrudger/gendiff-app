@@ -14,8 +14,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: npm ci # or yarn install
-      - uses: sibiraj-s/action-eslint@v2
+      - name: ESLint Code Review
+        uses: yousufkalim/eslint-action@latest
         with:
-          extensions: 'js,jsx,ts,tsx'
+          eslint-args: '--ignore-path=.gitignore'
+          eslintrc: true
+          auto-auto-fix-before-test: false # Set this to true if want to format and fix all the lint issue before testing
           annotations: true
