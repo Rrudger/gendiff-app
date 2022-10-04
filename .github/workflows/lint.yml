@@ -7,17 +7,15 @@ on:
       - main
 
 jobs:
-  eslint:
+  lint:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - name: ESLint Code Review
-        uses: yousufkalim/eslint-action@latest
-        with:
-          eslint-args: '--ignore-path=.gitignore'
-          eslintrc: true
-          auto-auto-fix-before-test: false # Set this to true if want to format and fix all the lint issue before testing
-          annotations: true
+      # Клонируем репозиторий
+      - uses: actions/checkout@v2
+      # Устанавливаем Node.js
+      - uses: actions/setup-node@v1
+      # Ставим зависимости
+      - run: npm install
+      # Запускаем линтер
+      - run: npx eslint .
