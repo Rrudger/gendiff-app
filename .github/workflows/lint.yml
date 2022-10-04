@@ -1,15 +1,21 @@
-name: run linter
-run-name: ${{ github.actor }} uses linter
-on: [push]
+name: Lint
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
 jobs:
-  check-bats-version:
+  eslint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: latest
-      - run: npm init @eslint/config
-      - run: npx eslint .
+          node-version: 16
+      - run: npm ci # or yarn install
+      - uses: sibiraj-s/action-eslint@v2
         with:
-          eslintConfig: .eslintrc.yml
+          extensions: 'js,jsx,ts,tsx'
+          annotations: true
