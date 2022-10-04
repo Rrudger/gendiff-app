@@ -16,6 +16,6 @@ jobs:
       # Устанавливаем Node.js
       - uses: actions/setup-node@v1
       # Ставим зависимости
-      - run: make install
+      - run: make install-debs
       # Запускаем линтер
       - run: make lint
