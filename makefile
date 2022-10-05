@@ -10,7 +10,7 @@ lint:
 	npx eslint .
 
 test:
-	npm test
+	npm test  --verbose --watch
 
 publish:
 	npm publish --dry-run
