@@ -5,7 +5,7 @@ import { cwd } from 'node:process';
 function makeStr(obj) {
   let result = '{\n';
   Object.entries(obj).forEach((pair) => {
-    result += `\t${pair[0]}: ${pair[1]}\n`
+    result += `\t${pair[0]}: ${pair[1]}\n`;
   });
   result += '}';
   return result;
