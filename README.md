@@ -5,4 +5,4 @@
 [![lint and tests](https://github.com/Rrudger/frontend-project-lvl2/actions/workflows/actions.yml/badge.svg)](https://github.com/Rrudger/frontend-project-lvl2/actions/workflows/actions.yml)
 
 asciinema:
- https://asciinema.org/a/UC1vX4qE2Me8xSVKK74YTRQua
+ https://asciinema.org/a/iQlRMz1x7JLU78z0Kfyrq9SYZ

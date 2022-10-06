@@ -1,6 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
-import { cwd } from 'node:process';
+import parseFile from './parsers.js';
 
 function makeStr(obj) {
   let result = '{\n';
@@ -12,8 +11,8 @@ function makeStr(obj) {
 }
 
 export default function genDiff(path1, path2) {
-  const data1 = JSON.parse(readFileSync(resolve(cwd(), 'files', path1), 'utf-8'));
-  const data2 = JSON.parse(readFileSync(resolve(cwd(), 'files', path2), 'utf-8'));
+  const data1 = parseFile(path1);
+  const data2 = parseFile(path2);
   const keysArr = [...new Set([...Object.keys(data1), ...Object.keys(data2)])].sort();
   const result = {};
   keysArr.forEach((keyword) => {
