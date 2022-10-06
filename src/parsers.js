@@ -1,6 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { extname } from 'node:path';
-import { resolve } from 'node:path';
+import { extname, resolve } from 'node:path';
 import { cwd } from 'node:process';
 import yaml from 'js-yaml';
 
@@ -10,6 +9,6 @@ const parsers = {
   '.json': JSON.parse,
 };
 // Get document, or throw exception on error
-export default function parseFile (filepath) {
+export default function parseFile(filepath) {
   return parsers[extname(filepath)](readFileSync(resolve(cwd(), 'files', filepath), 'utf8'));
 }

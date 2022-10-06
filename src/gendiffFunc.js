@@ -1,4 +1,3 @@
-import { readFileSync } from 'node:fs';
 import parseFile from './parsers.js';
 
 function makeStr(obj) {
