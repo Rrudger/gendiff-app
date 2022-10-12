@@ -8,7 +8,7 @@ const parsers = {
   '.yaml': yaml.load,
   '.json': JSON.parse,
 };
-// Get document, or throw exception on error
+
 export default function parseFile(filepath) {
   return parsers[extname(filepath)](readFileSync(resolve(cwd(), 'files', filepath), 'utf8'));
 }

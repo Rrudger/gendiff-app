@@ -1,15 +1,19 @@
 #!/usr/bin/env node
 import { program } from 'commander';
 import genDiff from './src/gendiffFunc.js';
+import formater from './src/formaters.js';
+import { writeFileSync } from 'node:fs';
 
 program
   .name('gendiff')
   .version('1.0.0')
   .description('Compares two configuration files and shows a difference.')
-  .option('-f, --format <type>', 'output format')
+  .option('-f, --format <type>', 'output format', 'stylish')
   .argument('<filepath1> <filepath2>')
   .action(() => {
-    console.log(genDiff(program.args[0], program.args[1]));
+    const temp = formater(genDiff(program.args[0], program.args[1]), program.opts().format);
+    writeFileSync('__fixtures__/diff.txt', temp);
+    console.log(temp);
   });
 
 program.parse(process.argv);

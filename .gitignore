@@ -1,1 +1,6 @@
 node_modules
+src/vec.js
+files/flatfile1.json
+files/flatfile2.json
+files/flatfile1.yml
+files/flatfile2.yml
