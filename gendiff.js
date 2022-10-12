@@ -2,7 +2,6 @@
 import { program } from 'commander';
 import genDiff from './src/gendiffFunc.js';
 import formater from './src/formaters.js';
-import { writeFileSync } from 'node:fs';
 
 program
   .name('gendiff')
@@ -12,7 +11,6 @@ program
   .argument('<filepath1> <filepath2>')
   .action(() => {
     const temp = formater(genDiff(program.args[0], program.args[1]), program.opts().format);
-    writeFileSync('__fixtures__/diff.txt', temp);
     console.log(temp);
   });
 
