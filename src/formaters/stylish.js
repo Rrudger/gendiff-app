@@ -1,6 +1,7 @@
 import _ from 'lodash';
 
-function stylishFormater(str) {
+export default function stylishFormater(obj) {
+  const str = JSON.stringify(obj);
   const primArr = str.split('').filter((ch) => ch !== '"').map((ch) => {
     switch (ch) {
       case '{':
@@ -31,12 +32,4 @@ function stylishFormater(str) {
     }
   });
   return `${secArr.join('').slice(0, -4).trim()}\n}`;
-}
-
-const formaters = {
-  stylish: stylishFormater,
-};
-
-export default function formater(obj, format) {
-  return formaters[format](JSON.stringify(obj));
 }

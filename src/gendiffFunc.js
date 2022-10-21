@@ -1,5 +1,12 @@
 import _ from 'lodash';
 import parseFile from './parsers.js';
+import stylishFormater from './formaters/stylish.js';
+import plainFormater from './formaters/plain.js';
+
+const formaters = {
+  stylish: stylishFormater,
+  plain: plainFormater,
+};
 
 function recDiff(obj1, obj2, resObj) {
   const keys = [...new Set([...Object.keys(obj1), ...Object.keys(obj2)])].sort();
@@ -34,10 +41,10 @@ function recDiff(obj1, obj2, resObj) {
   });
 }
 
-export default function genDiff(path1, path2) {
+export default function genDiff(path1, path2, format) {
   const data1 = parseFile(path1);
   const data2 = parseFile(path2);
   const result = {};
   recDiff(data1, data2, result);
-  return result;
+  return formaters[format](result);
 }
