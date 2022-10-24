@@ -2,10 +2,12 @@ import _ from 'lodash';
 import parseFile from './parsers.js';
 import stylishFormater from './formaters/stylish.js';
 import plainFormater from './formaters/plain.js';
+import jsonFormater from './formaters/json.js';
 
 const formaters = {
   stylish: stylishFormater,
   plain: plainFormater,
+  json: jsonFormater,
 };
 
 function recDiff(obj1, obj2, resObj) {
