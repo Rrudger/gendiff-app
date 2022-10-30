@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import { writeFileSync } from 'node:fs';
 
 function getPath(path, key) {
@@ -44,5 +45,8 @@ export default function plainFormater(obj) {
   const path = [];
   plainRec(obj, path, result);
   // writeFileSync('./test_fixtures/try.txt', result.join('\n'));
-  return result.join('\n');
+  return result.map((str) => {
+    return str.includes('object') ? _.replace(str, 'object Object', 'complex value') : str;
+  })
+  .join('\n');
 }
