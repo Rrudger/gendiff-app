@@ -60,5 +60,5 @@
       - type: bas
       + type: bar
     }
-	  language: j
+	  language: js
 }
