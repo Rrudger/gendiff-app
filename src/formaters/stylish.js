@@ -27,7 +27,7 @@ export default function stylishFormater(obj) {
         tabCount -= 1;
         return key;
       case '\n':
-        return tabCount > 1 ? `\n${_.repeat('  ', tabCount + (tabCount - 1))}`: `\n${_.repeat('\t', tabCount)}`;
+        return tabCount > 1 ? `\n${_.repeat('  ', tabCount + (tabCount - 1))}`: `\n  `;
         // return `\n${_.repeat('\t', tabCount)}`;
       default:
         return key;
@@ -39,6 +39,6 @@ export default function stylishFormater(obj) {
   }
   });
   const resStr = `${terzArr.join('').slice(0, -2).trim()}\n}`;
-  // writeFileSync('./test_fixtures/try.txt', resStr);
+  writeFileSync('./test_fixtures/try.txt', resStr);
   return resStr;
 }
