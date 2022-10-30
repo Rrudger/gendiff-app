@@ -27,7 +27,6 @@ export default function stylishFormater(obj) {
         return key;
       case '\n':
         return tabCount > 1 ? `\n${_.repeat('  ', tabCount + (tabCount - 1))}`: `\n  `;
-        // return `\n${_.repeat('\t', tabCount)}`;
       default:
         return key;
     }

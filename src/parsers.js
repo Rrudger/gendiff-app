@@ -10,5 +10,5 @@ const parsers = {
 };
 
 export default function parseFile(filepath) {
-  return parsers[extname(filepath)](readFileSync(resolve(cwd(), 'test_fixtures', filepath), 'utf8'));
+  return parsers[extname(filepath)](readFileSync(resolve(cwd(), 'files', filepath), 'utf8'));
 }

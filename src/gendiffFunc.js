@@ -34,32 +34,23 @@ function recDiff(obj1, obj2, resObj) {
     if (((typeof (obj1[k]) !== 'object') || (typeof (obj2[k]) !== 'object'))
      || obj1[k] === null || obj2[k] === null) {
       if (obj1[k] === obj2[k]) {
-        //console.log(`Case1: ${k}: ${obj1[k]}`);
-        //resObj[`  ${k}`] = obj1[k];
         resObj[k] = obj1[k];
       } else if (obj1[k] === undefined) {
-        //console.log(`Case 2: ${k}: ${obj2[k]}`);
         resObj[`+ ${k}`] = obj2[k];
       } else if (obj2[k] === undefined) {
-        //console.log(`Case 3: ${k}: ${obj1[k]}`);
         resObj[`- ${k}`] = obj1[k];
       } else {
-        //console.log(`Case 4: ${k}: ${obj1[k]}`);
-        //console.log(`${k}: ${obj2[k]}`);
         resObj[`- ${k}`] = obj1[k];
         resObj[`+ ${k}`] = obj2[k];
       }
     } else {
-      //let tempKey = `  ${k}`;
       let tempKey = k;
       const tempObj1 = obj1[k];
       const tempObj2 = obj2[k];
       if (obj1[k] === undefined) {
-        //console.log(`${k}: ${obj2[k]}`);
         tempKey = `+ ${k}`;
         resObj[tempKey] = _.cloneDeep(obj2[k]);
       } else if (obj2[k] === undefined) {
-        //console.log(`${k}: ${obj1[k]}`);
         tempKey = `- ${k}`;
         resObj[tempKey] = _.cloneDeep(obj1[k]);
       } else {
