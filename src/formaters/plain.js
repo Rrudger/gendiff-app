@@ -1,3 +1,5 @@
+import { writeFileSync } from 'node:fs';
+
 function getPath(path, key) {
   const finalPath = `${path.join('.')}.${key.slice(2)}`;
   return finalPath[0] === '.' ? finalPath.slice(1) : finalPath;
@@ -30,7 +32,7 @@ function plainRec(obj, path, result) {
       result.push(`Property '${getPath(path, keys[i])}' was removed`);
     } else {
       const newPath = path;
-      newPath.push(keys[i]);
+      newPath.push(keys[i].trim());
       plainRec(obj[keys[i]], newPath, result);
     }
     if (i === keys.length - 1) path.pop();
@@ -41,5 +43,6 @@ export default function plainFormater(obj) {
   const result = [];
   const path = [];
   plainRec(obj, path, result);
+  writeFileSync('./test_fixtures/try.txt', result.join('\n'));
   return result.join('\n');
 }

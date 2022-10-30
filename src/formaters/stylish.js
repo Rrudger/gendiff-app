@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import { writeFileSync } from 'node:fs';
 
 export default function stylishFormater(obj) {
   const str = JSON.stringify(obj);
@@ -39,6 +38,5 @@ export default function stylishFormater(obj) {
   }
   });
   const resStr = `${terzArr.join('').slice(0, -2).trim()}\n}`;
-  // writeFileSync('./test_fixtures/try.txt', resStr);
   return resStr;
 }
