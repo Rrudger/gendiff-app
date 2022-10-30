@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import { writeFileSync } from 'node:fs';
 
 export default function stylishFormater(obj) {
   const str = JSON.stringify(obj);
@@ -26,10 +27,18 @@ export default function stylishFormater(obj) {
         tabCount -= 1;
         return key;
       case '\n':
-        return `\n${_.repeat('   ', tabCount)}`;
+        return tabCount > 1 ? `\n${_.repeat('  ', tabCount + (tabCount - 1))}`: `\n${_.repeat('\t', tabCount)}`;
+        // return `\n${_.repeat('\t', tabCount)}`;
       default:
         return key;
     }
   });
-  return `${secArr.join('').slice(0, -4).trim()}\n}`;
+  const terzArr = secArr.join('').split('').map((key, index, arr) => {
+    if ((arr[index + 1] !== '}' && arr[index + 2] !== '}') || index + 1 === arr.length - 1) {
+      return key;
+  }
+  });
+  const resStr = `${terzArr.join('').slice(0, -3).trim()}\n}`;
+  writeFileSync('./test_fixtures/try.txt', resStr);
+  return resStr;
 }
