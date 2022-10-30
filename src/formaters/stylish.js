@@ -39,6 +39,6 @@ export default function stylishFormater(obj) {
   }
   });
   const resStr = `${terzArr.join('').slice(0, -2).trim()}\n}`;
-  writeFileSync('./test_fixtures/try.txt', resStr);
+  // writeFileSync('./test_fixtures/try.txt', resStr);
   return resStr;
 }
