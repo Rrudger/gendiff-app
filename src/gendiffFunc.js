@@ -75,6 +75,5 @@ export default function genDiff(path1, path2, format = 'stylish') {
   const data2 = parseFile(path2);
   const result = {};
   recDiff(data1, data2, result);
-  console.log(format);
   return formaters[format](addTab(result));
 }
