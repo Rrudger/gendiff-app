@@ -28,17 +28,6 @@ function addTab(obj) {
   return result;
 };
 
-const t = {
-  ine: 'dfdfdf',
-  two: 'dfdf',
-  three: {
-    etet: "dfdfdf",
-    key: 555
-  }
-};
-// console.log(addTab(t));
-
-
 function recDiff(obj1, obj2, resObj) {
   const keys = [...new Set([...Object.keys(obj1), ...Object.keys(obj2)])].sort();
   keys.forEach((k) => {
@@ -86,5 +75,6 @@ export default function genDiff(path1, path2, format) {
   const data2 = parseFile(path2);
   const result = {};
   recDiff(data1, data2, result);
+  console.log(format);
   return formaters[format](addTab(result));
 }
