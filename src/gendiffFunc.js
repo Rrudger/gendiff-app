@@ -70,7 +70,7 @@ function recDiff(obj1, obj2, resObj) {
   });
 }
 
-export default function genDiff(path1, path2, format) {
+export default function genDiff(path1, path2, format = 'stylish') {
   const data1 = parseFile(path1);
   const data2 = parseFile(path2);
   const result = {};
