@@ -43,6 +43,6 @@ export default function plainFormater(obj) {
   const result = [];
   const path = [];
   plainRec(obj, path, result);
-  writeFileSync('./test_fixtures/try.txt', result.join('\n'));
+  // writeFileSync('./test_fixtures/try.txt', result.join('\n'));
   return result.join('\n');
 }
