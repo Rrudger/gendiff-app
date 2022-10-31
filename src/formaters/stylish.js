@@ -31,11 +31,7 @@ export default function stylishFormater(obj) {
         return key;
     }
   });
-  const terzArr = secArr.join('').split('').map((key, index, arr) => {
-    if ((arr[index + 1] !== '}' && arr[index + 2] !== '}') || index + 1 === arr.length - 1) {
-      return key;
-  } else return;
-  });
+  const terzArr = secArr.join('').split('').filter((key, index, arr) => (arr[index + 1] !== '}' && arr[index + 2] !== '}') || index + 1 === arr.length - 1);
   const resStr = `${terzArr.join('').slice(0, -2).trim()}\n}`;
   return resStr;
 }
