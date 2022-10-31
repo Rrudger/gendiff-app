@@ -26,7 +26,7 @@ export default function stylishFormater(obj) {
         tabCount -= 1;
         return key;
       case '\n':
-        return tabCount > 1 ? `\n${_.repeat('  ', tabCount + (tabCount - 1))}`: `\n  `;
+        return tabCount > 1 ? `\n${_.repeat('  ', tabCount + (tabCount - 1))}` : ''\n  ';
       default:
         return key;
     }
@@ -34,7 +34,7 @@ export default function stylishFormater(obj) {
   const terzArr = secArr.join('').split('').map((key, index, arr) => {
     if ((arr[index + 1] !== '}' && arr[index + 2] !== '}') || index + 1 === arr.length - 1) {
       return key;
-  }
+  } else return;
   });
   const resStr = `${terzArr.join('').slice(0, -2).trim()}\n}`;
   return resStr;
