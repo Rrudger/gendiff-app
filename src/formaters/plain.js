@@ -14,9 +14,9 @@ function plainRec(obj, path, result) {
   for (let i = 0; i < keys.length; i += 1) {
     if ((typeof (obj[keys[i]]) !== 'object') || (obj[keys[i]]) === null) {
       if ((i < keys.length - 1) && (keys[i].slice(2) === keys[i + 1].slice(2))) {
-        const newValue = `Property '${getPath(path, keys[i])}' was updated. From ${checkValue(obj[keys[i]])} to ${checkValue(obj[keys[i + 1]])}`;
-        result = [ ...newValue, ...result];
-        //result.push(`Property '${getPath(path, keys[i])}' was updated. From ${checkValue(obj[keys[i]])} to ${checkValue(obj[keys[i + 1]])}`);
+        // const newValue = `Property '${getPath(path, keys[i])}' was updated. From ${checkValue(obj[keys[i]])} to ${checkValue(obj[keys[i + 1]])}`;
+        // result = [ ...newValue, ...result];
+        result.push(`Property '${getPath(path, keys[i])}' was updated. From ${checkValue(obj[keys[i]])} to ${checkValue(obj[keys[i + 1]])}`);
         i += 1;
       } else if ((keys[i][0] === '+')) {
         result.push(`Property '${getPath(path, keys[i])}' was added with value: ${checkValue(obj[keys[i]])}`);
