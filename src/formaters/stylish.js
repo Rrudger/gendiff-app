@@ -16,16 +16,10 @@ export default function stylishFormater(obj) {
         return ch;
     }
   });
-  let tabCount = 0;
-  const secArr = primArr.join('').split('').filter((key) => key !== ',').map((key) => {
+  const secArr = primArr.join('').split('').filter((key) => key !== ',').map((key, index, arr) => {
     switch (key) {
-      case '{':
-        tabCount += 1;
-        return key;
-      case '}':
-        tabCount -= 1;
-        return key;
       case '\n':
+        const tabCount = (arr.slice(0, index).filter((k) => k === '{').length) - (arr.slice(0, index).filter((k) => k === '}').length);
         return tabCount > 1 ? `\n${_.repeat('  ', tabCount + (tabCount - 1))}` : '\n  ';
       default:
         return key;
