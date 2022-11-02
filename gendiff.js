@@ -6,7 +6,7 @@ program
   .name('gendiff')
   .version('1.0.0')
   .description('Compares two configuration files and shows a difference.')
-  .option('-f, --format <type>', 'output format', 'plain')
+  .option('-f, --format <type>', 'output format', 'stylish')
   .argument('<filepath1> <filepath2>')
   .action(() => {
     const result = genDiff(program.args[0], program.args[1], program.opts().format);
