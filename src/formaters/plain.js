@@ -34,7 +34,8 @@ export default function plainFormater(obj) {
   const path = [];
   const result = plainRec(obj, path);
   return result.map((str) => {
-    return str.includes('object') ? _.replace(str, 'object Object', 'complex value') : str
-})
+    if (str.includes('object')) return _.replace(str, 'object Object', 'complex value');
+    return str;
+  })
     .join('\n');
 }
