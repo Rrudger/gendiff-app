@@ -11,22 +11,23 @@ const formaters = {
 };
 
 function addRec(obj, resultObj) {
-Object.keys(obj).forEach((key) => {
-  if ((typeof(obj[key]) !== 'object') || ((obj[key]) === null)) {
-    const tempKey = (key[0] === '+' || key[0] === '-') ? key : `  ${key}`;
-    resultObj[tempKey] = obj[key];
-  } else {
-     const temp = (key[0] === '+' || key[0] === '-') ? key : `  ${key}`;
-    resultObj[temp] = {};
-    addRec(obj[key], resultObj[temp]);
-  }
-})
+  Object.keys(obj).forEach((key) => {
+    if ((typeof (obj[key]) !== 'object') || ((obj[key]) === null)) {
+      const tempKey = (key[0] === '+' || key[0] === '-') ? key : `  ${key}`;
+      resultObj[tempKey] = obj[key];
+    } else {
+      const temp = (key[0] === '+' || key[0] === '-') ? key : `  ${key}`;
+      resultObj[temp] = {};
+      addRec(obj[key], resultObj[temp]);
+    }
+  });
 }
+
 function addTab(obj) {
   const result = {};
   addRec(obj, result);
   return result;
-};
+}
 
 function recDiff(obj1, obj2, resObj) {
   const keys = [...new Set([...Object.keys(obj1), ...Object.keys(obj2)])].sort();
